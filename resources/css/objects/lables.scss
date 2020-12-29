@@ -1,0 +1,34 @@
+.lable {
+    font-size: 1.2rem;
+    padding: .3rem .7rem;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: .6rem;
+}
+
+
+.food {
+    color: $food;
+    border-color: $food;
+}
+
+.lable:hover {
+    opacity: 60%;
+}
+
+
+
+.wine{
+    color: $wine;
+    border-color: $wine;
+}
+
+.bio{
+    color: $bio;
+    border-color: $bio;
+}
+
+.loc{
+    color: $loc;
+    border-color: $loc;
+}
