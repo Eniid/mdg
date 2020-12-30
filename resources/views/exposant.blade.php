@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>Le marché des <span>&nbsp;Gourmets</span></h1>
+<h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
 <!-- Nav timeline & CTA -->
 <x-nav></x-nav>
 <x-timeline></x-timeline>
@@ -15,19 +15,20 @@
     <div class="exp_main_sec exp_head_contener">
         <div class="exp_head">
             <div class="title">
-                <h2 class="title_exp"> <span class="first_letter">N</span>os exposants</h2> <a class="become_exp" href="/devenir_exposant">Devenir exposant</a>
+                <h2 class="title_exp"> <span class="first_letter">N</span>os exposants</h2> <a class="become_exp" href="/exposants/demande">Devenir exposant</a>
                 <div class="labeles">
-                    <a href="" class="lable food">nourriture</a>
-                    <a href="" class="lable wine">vin et boisson</a>
-                    <a href="" class="lable bio">bio</a>
-                    <a href="" class="lable loc">locale</a>
+                    @foreach($lables as $lable)
+                    <a href="/exposants/?s={{$lable->name}}" class="lable" style="color:{{$lable->color}}">{{$lable->name}}</a>
+                    @endforeach
+                    <a href="/exposants" class="lable">Voir tout</a>
                 </div>
             </div>
 
             <div class="expo_search">
-                <form action="" class="input_contener">
+                <form action="exposants" class="input_contener">
+                    @csrf
                     <label for="search" class="visually-hidden">Recherche</label>
-                    <input type="text" placeholder="recherche">
+                    <input type="text" placeholder="recherche" name="search">
                     <div class="input"></div>
                     <button class="search_button"><img src="./img/search.svg" alt=""></button>
                 </form>
@@ -39,84 +40,26 @@
     </div>
 
     <div class="exp_body exp_main_sec">
-        <section class="exp_contener">
-            <div class="exp_img" style="background-image: url('./img/bisc.jpg');">
-            </div>
-            <div class="exptext">
-                <div class="labeles inner_lable">
-                    <a href="" class="lable food">nourriture</a>
-                    <a href="" class="lable loc">locale</a>
+
+        @foreach($exposants as $exposant)
+            <section class="exp_contener">
+                <div class="exp_img" style="background-image: url('./img/bisc.jpg');">
                 </div>
-                <h3><span class="first_letter">B</span>iscuit Belge</h3>
-                <p>Concepteur de délicieux biscuit artisanaux, réalisé à 100% avec des produit bio de qualité. </p>
-                <a href="#" class="h_cta exp_cta">Page Facebook</a>
-            </div>
-        </section>
-
-
-        <section class="exp_contener">
-            <div class="exp_img" style="background-image: url('./img/bisc.jpg');">
-            </div>
-            <div class="exptext">
-                <div class="labeles inner_lable">
-                    <a href="" class="lable food">nourriture</a>
-                    <a href="" class="lable loc">locale</a>
+                <div class="exptext">
+                    <div class="labeles inner_lable">
+                        @foreach($exposant->lables as $lable)
+                        <a href="" class="lable" style="color:{{$lable->color}}">{{$lable->name}}</a>
+                        @endforeach
+                    </div>
+                    <h3>{{$exposant->name}}</h3>
+                    <div class="exp_desc">{!!$exposant->desciption!!}</div>
+                    @if($exposant->link)
+                        <a href="{{$exposant->link}}" class="h_cta exp_cta" target="_blank" rel="noopener noreferrer">Leur site web</a>
+                    @endif
                 </div>
-                <h3><span class="first_letter">B</span>iscuit Belge</h3>
-                <p>Concepteur de délicieux biscuit artisanaux, réalisé à 100% avec des produit bio de qualité. </p>
-                <a href="#" class="h_cta exp_cta">Page Facebook</a>
-            </div>
-        </section>
+            </section>
+        @endforeach
 
-
-
-        <section class="exp_contener">
-            <div class="exp_img" style="background-image: url('./img/bisc.jpg');">
-            </div>
-            <div class="exptext">
-                <div class="labeles inner_lable">
-                    <a href="" class="lable food">nourriture</a>
-                    <a href="" class="lable loc">locale</a>
-                </div>
-                <h3><span class="first_letter">B</span>iscuit Belge</h3>
-                <p>Concepteur de délicieux biscuit artisanaux, réalisé à 100% avec des produit bio de qualité. </p>
-                <a href="#" class="h_cta exp_cta">Page Facebook</a>
-            </div>
-        </section>
-
-
-
-        <section class="exp_contener">
-            <div class="exp_img" style="background-image: url('./img/bisc.jpg');">
-            </div>
-            <div class="exptext">
-                <div class="labeles inner_lable">
-                    <a href="" class="lable food">nourriture</a>
-                    <a href="" class="lable loc">locale</a>
-                </div>
-                <h3><span class="first_letter">B</span>iscuit Belge</h3>
-                <p>Concepteur de délicieux biscuit artisanaux, réalisé à 100% avec des produit bio de qualité. </p>
-                <a href="#" class="h_cta exp_cta">Page Facebook</a>
-
-            </div>
-        </section>
-
-
-
-        <section class="exp_contener">
-            <div class="exp_img" style="background-image: url('./img/bisc.jpg');">
-            </div>
-            <div class="exptext">
-                <div class="labeles inner_lable">
-                    <a href="" class="lable food">nourriture</a>
-                    <a href="" class="lable loc">locale</a>
-                </div>
-                <h3><span class="first_letter">B</span>iscuit Belge</h3>
-                <p>Concepteur de délicieux biscuit artisanaux, réalisé à 100% avec des produit bio de qualité. </p>
-                <a href="#" class="h_cta exp_cta">Page Facebook</a>
-            
-            </div>
-        </section>
     </div>
 </section>
 

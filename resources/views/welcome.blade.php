@@ -17,9 +17,9 @@
         <div class="pres_text">
             <h2>Le {{$lastEdition->edition_number}} marché des <span class="first_letter">Gourmets</span></h2>
 
-            <div>
-            {!! $lastEdition->catch !!}
-                </div>
+            <div class="this_edition_pres">
+                {!! $lastEdition->catch !!}
+            </div>
             <a href="#" class="main_cta">Achetez vos tickets <img src="{{ asset('img/arrow.svg') }}" alt=""></a>
         </div>
         <div class="pres_img">
@@ -53,7 +53,9 @@
         <div class="exp annim">
             <h2><span class="first_letter desc_title">Edition 2021</h2>
 
-            <p>{{$lastEdition->presentation}}</p>
+            <div class="this_edition_pres">
+                {!!$lastEdition->presentation!!}
+            </div>
 
             <a href="#" class="cta">Achetez vos tickets <img src="" alt=""></a>
             <a href="#" class="h_cta">Achetez vos tickets <img src="" alt=""></a>

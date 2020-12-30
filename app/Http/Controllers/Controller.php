@@ -13,16 +13,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(){
-        $editions = Edition::all();
-        $lastEdition = $editions->sortByDesc('edition_date')->first();
-
-        $contact = Contact::all()->first(); 
-
-        //var_dump($lastEdition);
-
-        return view('welcome', compact('lastEdition', 'contact'));
-    }
     
 
 }

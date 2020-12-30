@@ -15,8 +15,14 @@
 
         <footer>
             <div>
-                Date : Marse 2020<br>
-                Lieu : <a href="#">Vale Saint-Lambert</a>
+                @if($lastEdition->aprox_date)
+                    Date : {{$lastEdition->aprox_date}}
+                @endif
+                <br>
+                @if($lastEdition->place)
+                    Lieu : @if($lastEdition->google_map)<a href="{{$lastEdition->google_map}}" target="_blank" rel="noopener noreferrer">@endif{{$lastEdition->place}}@if($lastEdition->google_map)</a>@endif
+                @endif
+
             </div>
             <div class="foot_link">
                 <a href="#">{{$contact->web}}</a>

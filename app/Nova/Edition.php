@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Panel;
 use Pdmfc\NovaCards\Info;
 
 class Edition extends Resource
@@ -60,15 +61,47 @@ class Edition extends Resource
             Text::make('Numéro de l\'édition', 'edition_number')->rules('required'), 
             Text::make('Année de l\'edition', 'edition_date')->rules('required', 'max:4'), 
 
-            Text::make('Prix', 'price')->hideFromIndex(), 
-            Text::make('Prix Enfant', 'kids_price')->hideFromIndex(), 
-            Text::make('Lieu', 'adress')->hideFromIndex(), 
-            DateTime::make('Date de début', 'bigining_date'), 
-            DateTime::make('Date de fin', 'ending_date'), 
-            Trix::make('Desciption rapide', 'catch'),
-            Textarea::make('Présenation de l\'édition','presentation'), 
+            new Panel("Le prix", $this->price()),
+            new Panel("Le lieu", $this->where()),
+            new Panel("La date", $this->time()),
+            new Panel("Description pour la page d'acceuil", $this->desc()),
 
             HasOne::make('archive'), 
+        ];
+    }
+
+
+    private function price()
+    {
+        return [
+            Text::make('Prix', 'price')->hideFromIndex(), 
+            Text::make('Prix Enfant', 'kids_price')->hideFromIndex(), 
+        ];
+    }
+
+    private function where()
+    {
+        return [
+            Text::make('Lieu', 'place')->hideFromIndex(), 
+            Text::make('Adresse', 'adress')->hideFromIndex(), 
+            Textarea::make('Lien google Map de l\'adresse', 'google_map')->hideFromIndex(),
+        ];
+    }
+
+    private function time()
+    {
+        return [
+            DateTime::make('Date de début', 'bigining_date'), 
+            DateTime::make('Date de fin', 'ending_date'),
+            Text::make('Date aproximative', 'aprox_date')->hideFromIndex(), 
+        ];
+    }
+
+    private function desc()
+    {
+        return [
+            Trix::make('Desciption rapide', 'catch'),
+            Trix::make('Présenation de l\'édition','presentation'), 
         ];
     }
 

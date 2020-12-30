@@ -3,7 +3,8 @@
 
 @section('content')
 
-<h1>Le marché des <span>&nbsp;Gourmets</span></h1>
+<h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
+
 <!-- Nav timeline & CTA -->
 <x-nav></x-nav>
 <x-timeline></x-timeline>
@@ -25,35 +26,36 @@
 
     </div>
     <div class="cont_form">
-        <form action="">
+        <form action="/exposants/demande" method="post">
+            @csrf
             <div class="input_contener form_input">
                 <label for="name">Nom :</label>
                 <input type="text" id="name" name="name">
                 <div class="input"></div>
             </div>
             <div class="input_contener form_input mail_input">
-                <label for="name">E-mail :</label>
-                <input type="text" id="name" name="name" class="mail">
+                <label for="mail">E-mail :</label>
+                <input type="text" id="name" name="mail" class="mail">
                 <div class="input"></div>
             </div>
             <div class="input_contener form_input inl_input">
-                <label for="name">E-mail :</label>
-                <input type="text" id="name" name="name" class="mail">
+                <label for="s_name">Nom du stand :</label>
+                <input type="text" id="s_name" name="s_name" class="mail">
                 <div class="input"></div>
             </div>
             <div class="input_contener form_input inl_input">
-                <label for="name">E-mail :</label>
-                <input type="text" id="name" name="name" class="mail">
+                <label for="prod">Produits :</label>
+                <input type="text" id="prod" name="prod" class="mail">
                 <div class="input"></div>
             </div>
             <div class="input_contener form_input inl_input">
-                <label for="name">E-mail :</label>
-                <input type="text" id="name" name="name" class="mail">
+                <label for="link">E-mail :</label>
+                <input type="text" id="link" name="link" class="mail">
                 <div class="input"></div>
             </div>
             <div class="input_contener form_input form_aria from_aria_exp">
-                <label for="name" class="aria_lable">Votre message :</label>
-                <textarea name="name" id="name" cols="30" rows="10" class="aria input_aria"></textarea>
+                <label for="body" class="aria_lable">Votre message :</label>
+                <textarea name="body" id="body" cols="30" rows="10" class="aria input_aria"></textarea>
                 <div class="input input_aria"></div>
                 <button class="h_cta form_send">Envoyer</button>
             </div>

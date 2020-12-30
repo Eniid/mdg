@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\aboutController;
+use App\Http\Controllers\expoController;
 use App\Http\Controllers\indexController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [indexController::class, 'index']);
 
 
-Route::get('/exposants', function () {
-    return view('exposant');
-});
+Route::get('/exposants', [expoController::class, 'index']);
 
-Route::get('/about', function () {
-    return view('about');
-});
+
+Route::get('/exposants/demande', [expoController::class, 'ask']);
+Route::post('/exposants/demande', [expoController::class, 'store']);
+
+Route::get('/about', [aboutController::class, 'index']);
+
 
 Route::get('/editions_precedents', function () {
     return view('last');
