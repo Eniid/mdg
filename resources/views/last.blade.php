@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>Le marché des <span>&nbsp;Gourmets</span></h1>
+<h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
 <!-- Nav timeline & CTA -->
 <x-nav></x-nav>
 <x-timeline></x-timeline>
@@ -19,142 +19,42 @@
     <section>
         <div class="last_title_contener">
             <div class="title_left"></div>
-            <h3>20eme Marché des gourmets</h3>
+            <h3>{{$lastEdition->edition_number}} Marché des gourmets</h3>
             <div class="title_right"></div>
         </div>
 
-        <a href="#" class="h_cta">Editions précédents<img src="" alt=""></a>
+        <a href="#" class="h_cta">Achetez vos billets<img src="" alt=""></a>
     </section>
 
-    <section>
-        <div class="last_title_contener">
-            <div class="title_left"></div>
-            <h3>18eme Marché des gourmets</h3>
-            <div class="title_right"></div>
-        </div>
 
-        <div class="last_content">
-            <div class="content_note">
-                <p>La 19eme édition du marché des gourmets à eu lieu le 10mai 2019 lieu lieu.</p>
-                <p>Petite note sur le marché de la part de qq un qui y était.</p>
+    @foreach($larchives as $archive)
+        
+        <section>
+            <div class="last_title_contener">
+                <div class="title_left"></div>
+                <h3>{{$archive->edition_id}}eme Marché des gourmets</h3>
+                <div class="title_right"></div>
             </div>
-            <div class="content_pics">
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
 
+            <div class="last_content">
+                <div class="content_note this_edition_pres">
+                {{$archive->presentation}}
+                </div>
+                <div class="content_pics">
+                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+
+                </div>
             </div>
-        </div>
 
-    </section>
-
-    <section>
-        <div class="last_title_contener">
-            <div class="title_left"></div>
-            <h3>18eme Marché des gourmets</h3>
-            <div class="title_right"></div>
-        </div>
-
-        <div class="last_content">
-            <div class="content_note">
-                <p>La 19eme édition du marché des gourmets à eu lieu le 10mai 2019 lieu lieu.</p>
-                <p>Petite note sur le marché de la part de qq un qui y était.</p>
-            </div>
-            <div class="content_pics">
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-
-            </div>
-        </div>
-
-    </section>
-
-    <section>
-        <div class="last_title_contener">
-            <div class="title_left"></div>
-            <h3>18eme Marché des gourmets</h3>
-            <div class="title_right"></div>
-        </div>
-
-        <div class="last_content">
-            <div class="content_note">
-                <p>La 19eme édition du marché des gourmets à eu lieu le 10mai 2019 lieu lieu.</p>
-                <p>Petite note sur le marché de la part de qq un qui y était.</p>
-            </div>
-            <div class="content_pics">
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-
-            </div>
-        </div>
-
-    </section>
-
-    <section>
-        <div class="last_title_contener">
-            <div class="title_left"></div>
-            <h3>18eme Marché des gourmets</h3>
-            <div class="title_right"></div>
-        </div>
-
-        <div class="last_content">
-            <div class="content_note">
-                <p>La 19eme édition du marché des gourmets à eu lieu le 10mai 2019 lieu lieu.</p>
-                <p>Petite note sur le marché de la part de qq un qui y était.</p>
-            </div>
-            <div class="content_pics">
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-
-            </div>
-        </div>
-
-    </section>
-
-    <section>
-        <div class="last_title_contener">
-            <div class="title_left"></div>
-            <h3>18eme Marché des gourmets</h3>
-            <div class="title_right"></div>
-        </div>
-
-        <div class="last_content">
-            <div class="content_note">
-                <p>La 19eme édition du marché des gourmets à eu lieu le 10mai 2019 lieu lieu.</p>
-                <p>Petite note sur le marché de la part de qq un qui y était.</p>
-            </div>
-            <div class="content_pics">
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-            <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-
-            </div>
-        </div>
-
-    </section>
+        </section>
+    @endforeach
+    {{ $archives->links() }}
 
 
     <!-- TESTE  -->

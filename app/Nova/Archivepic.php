@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use PhpParser\Node\Expr\New_;
@@ -45,10 +46,10 @@ class Archivepic extends Resource
     public function fields(Request $request)
     {
         return [
-            //ID::make(__('ID'), 'id')->sortable(),
+            ID::make(__('ID'), 'id')->sortable(),
 
 
-            Avatar::make('Ajouter une image', 'img')->rules('required')->disk('public'), 
+            Image::make('Ajouter une image', 'img')->rules('required'), 
 
             BelongsTo::make('archive')
 

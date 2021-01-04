@@ -28,18 +28,12 @@ Route::post('/exposants/demande', [expoController::class, 'store']);
 Route::get('/about', [aboutController::class, 'index']);
 
 
-Route::get('/editions_precedents', function () {
-    return view('last');
-});
+Route::get('/editions_precedents', [indexController::class, 'last']);
 
-Route::get('/contact', function () {
-    return view('contact');
-});
 
-Route::get('/buy', function () {
-    return view('buy');
-});
+Route::get('/contact', [expoController::class, 'message']);
+Route::post('/contact', [expoController::class, 'messageStore']);
 
-Route::get('/devenir_exposant', function () {
-    return view('new_exp');
-});
+Route::get('/buy', [indexController::class, 'buy']);
+
+

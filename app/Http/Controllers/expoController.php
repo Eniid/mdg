@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Edition;
 use App\Models\Expo;
 use App\Models\Lable;
+use App\Models\Message;
 use App\Models\Request as Req;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class expoController extends Controller
         $lastEdition = $editions->sortByDesc('edition_date')->first();
         $contact = Contact::all()->first(); 
         $lables = Lable::all(); 
-        $exposants = Expo::where('this_year', 1)->with('lables')->get(); 
+        $exposants = Expo::where('this_year', 1)->with('lables')->paginate(9); 
 
         
 
@@ -30,20 +31,37 @@ class expoController extends Controller
         //dd($lable);
             $exposants = Expo::whereHas('lables', function (Builder $query) use ($lable) {
                 $query->where('name', $lable);
-            })->get();
-
-
+            })->paginate(9);
         }
-        //$sortKey = request()->query('s');
-        //$exposants = $exposants->where('name', $sortKey); 
+
 
         if(request('search')){
             $re = request('search'); 
-        $exposants = Expo::where('this_year', 1)->where('name', 'like', '%' .$re.'%')->orWhere('desciption', 'like', '%' .$re.'%')->where('this_year', 1)->with('lables')->get(); 
+        $exposants = Expo::where('this_year', 1)->where('name', 'like', '%' .$re.'%')->orWhere('desciption', 'like', '%' .$re.'%')->where('this_year', 1)->with('lables')->paginate(9); 
         } 
 
         return view('exposant', compact('lastEdition', 'contact', 'lables', 'exposants'));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function ask(Request $request){
@@ -51,40 +69,80 @@ class expoController extends Controller
         $lastEdition = $editions->sortByDesc('edition_date')->first();
         $contact = Contact::all()->first(); 
 
+ 
         return view('new_exp', compact('lastEdition', 'contact'));
     }
+
+
 
     public function store(Request $request){
 
 
+        $editions = Edition::all();
+        $lastEdition = $editions->sortByDesc('edition_date')->first();
+        $contact = Contact::all()->first(); 
 
-        $validated = $request->validate(
+
+        $re = new Req(request()->validate(
             [
-                    'name' => 'required|min:4',
-                    'e_mail' => 'required',
-                    'company_name' => 'required|min:4',
-                    'products' => 'required',
-                    'body' => 'required',
-                ]
-            );
+                'name' => 'required|min:4',
+                'mail' => 'required|email',
+                's_name' => 'required',
+                'prod' => 'required',
+                'body' => 'required',
+            ]
+        ));
 
-            
-        $re = new Req($validated); 
-        $re -> name = request('name');
-        $re -> e_mail = request('mail');
-        $re -> company_name = request('s_name');
-        $re -> products = request('prod');
-        $re -> link = request('link');
-        $re -> body = request('body');
-        $re -> appouved = 0;
-        $re -> save();
+        $re->name = request('name');
+        $re->e_mail = request('mail');
+        $re->company_name = request('s_name');
+        $re->products = request('prod');
+        $re->link = request('link');
+        $re->body = request('body');
+        $re->appouved = 0;
+        $re->save();
 
 
+        return view('new_exp_deux', compact('lastEdition', 'contact'));
 
-        return redirect('/exposants/demande');
 
     }
 
+
+
+    public function message(){
+        $editions = Edition::all();
+        $lastEdition = $editions->sortByDesc('edition_date')->first();
+
+        $contact = Contact::all()->first(); 
+
+
+        return view('contact', compact('lastEdition', 'contact'));
+    }
+
+
+    public function messageStore(){
+        $editions = Edition::all();
+        $lastEdition = $editions->sortByDesc('edition_date')->first();
+
+        $contact = Contact::all()->first(); 
+
+
+        $mess = new Message(request()->validate(
+            [
+                'name' => 'required|min:4',
+                'mail' => 'required|email',
+
+            ]
+        ));
+
+        $mess->name = request('name');
+        $mess->e_mail = request('mail');
+        $mess->body = request('body');
+        $mess->save();
+
+        return view('contact', compact('lastEdition', 'contact'));
+    }
 
 
 

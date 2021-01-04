@@ -30,19 +30,23 @@
     <!-- Les plus du marché -->
     <section class="main_sec plus ">
         <h2 class="visually-hidden ">Les plus</h2>
-            <div class="one_plus annim one"">
-                <img src="{{ asset('img/one.svg') }}" alt="">
-                <p>Des petit plats à déguster, praparer avec les produits exposés.</p>
+            <div class="one_plus annim one">
+                <div class="one_contener cont">
+                    <p class="plus_text">Des petit plats à déguster, praparer avec les produits exposés.</p>
+                </div>
             </div>
             <div class="one_plus annim two " >
-                <img src="{{ asset('img/two.svg') }}" alt="">
-                <p>Une garderie pour vos enfants</p>
+                <div class="two_contner cont">
+                    <p>Une garderie pour vos enfants</p>
+                </div>
             </div>        <div class="one_plus annim three" ">
-                <img src="{{ asset('img/three.svg') }}" alt="">
+            <div class="three_contner cont">
                 <p>Un banc contacte pour retirer de l’argent a votre disponibilité</p>
+            </div>
             </div>        <div class="one_plus annim four">
-                <img src="{{ asset('img/four.svg') }}" alt="">
-                <p>Des lots à reporter tout au long du week-end.</p>
+                <div class="four_contner cont">
+                    <p>Des lots à reporter tout au long du week-end.</p>
+                </div>
             </div>
 
     </section>

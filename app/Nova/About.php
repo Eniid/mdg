@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -70,7 +71,7 @@ class About extends Resource
         return [
             Text::make('Titre', 'mdg_title')->rules('required'), 
             Trix::make('Desciption du marché', 'mdg_desc')->rules('required'),
-            File::make('Image', 'mdg_img'),
+            Image::make('Image', 'mdg_img'),
         ];
     }
 
@@ -79,7 +80,7 @@ class About extends Resource
         return [
             Text::make('Titre', 'why_title')->rules('required'), 
             Trix::make('Explication sur les enjeux du marché', 'why_desc')->rules('required'), 
-            File::make('Image', 'why_img'), 
+            Image::make('Image', 'why_img'), 
         ];
     }
 
@@ -88,7 +89,7 @@ class About extends Resource
         return [
             Text::make('Titre', 'rotari_title')->rules('required'), 
             Trix::make('Desciption du rotary', 'rotari_desc')->rules('required'), 
-            File::make('Image', 'rotari_img'),
+            Image::make('Image', 'rotari_img'),
         ];
     }
 

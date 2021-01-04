@@ -71,6 +71,15 @@ html {
     .pres_img {
         display: none;
     }
+
+    .presentation {
+        right: 0rem;
+        }
+
+        h1 {
+            position: absolute;
+
+        }
     
 }
 
@@ -99,17 +108,49 @@ html {
 
 
 .one_plus {
-    width: 20%;
+    
     min-width: 15rem;
     max-width: 50rem;
-    img{
-        width: 100%;
-        max-width: 30rem;
-        min-width: 20rem;
+    height: 20rem;
+    padding: 1rem;
+
+    .cont {
+        display: flex;
+        align-items: center;
+        background-color: red;
+        background: -webkit-linear-gradient(147deg, rgba(255,176,71,1) 0%, rgba(251,114,147,1) 100%);
+        height: 100%;
+        width: 20rem;
+        border-radius: 100px;
+        margin: 3rem;
+        box-shadow: 5px 5px 35px -13px #00000085;
     }
+
+
+.one_contener {
+    background: -webkit-linear-gradient(147deg, #FEAD4A,  #FCA254);
+}
+
+
+.two_contner {
+    background: -webkit-linear-gradient(147deg, #FE9E5E,  #FD9568);
+}
+
+.three_contner {
+    background: -webkit-linear-gradient(147deg, #FD8E71,  #FC847C);
+}
+
+.four_contner {
+    background: -webkit-linear-gradient(147deg, #FC8180,  #FB788B);
+}
 
     p {
         padding: 1rem 2rem;
         text-align: center;
+        font-size: 1.6rem;
+        line-height: 1.7rem;
+        color: #fff;
     }
 }
+
+

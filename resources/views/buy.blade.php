@@ -4,7 +4,7 @@
 @section('content')
 
 <a href="/">
-    <h1>Le marché des <span>&nbsp;Gourmets</span></h1>
+    <h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
 </a>
 <!-- Nav timeline & CTA -->
 <x-nav></x-nav>
@@ -22,31 +22,42 @@
         </p>
 
         <div class="title"><span class="first_letter">L</span>ieu</div>
-        <p>Vale Saint-Lambert</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2532.8248455493967!2d5.480579115727143!3d50.5932087794953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0f928ef867f13%3A0x9224d8cdcbf5d4c5!2sCristal%20Discovery%20Mus%C3%A9e%20Val%20Saint%20Lambert!5e0!3m2!1sfr!2sbe!4v1608203164530!5m2!1sfr!2sbe" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>        <div class="title"><span class="first_letter">D</span>ate</div>
-        <p>Marse 2021</p>
-        <p class="note">Les dates précises seront précisée plus    
-    tard en fonction de la situation sanitaire </p>
+        @if($lastEdition->place)
+            <p>Lieu : @if($lastEdition->google_map)<a href="{{$lastEdition->google_map}}" target="_blank" rel="noopener noreferrer">@endif{{$lastEdition->place}}@if($lastEdition->google_map)</a>@endif</p>
+            <p>{{$lastEdition->adress}}</p>
+        @else
+        A venir
+        @endif
+        <div class="title"><span class="first_letter">D</span>ate</div>
+
+        @if($lastEdition->bigining_date	)
+            <p>De {{$lastEdition->aprox_date}} au {{$lastEdition->ending_date}}	</p>
+        @elseif($lastEdition->aprox_date)
+            <p>{{$lastEdition->aprox_date}}</p>
+            <p class="note">Des dates plus précises setont connnues à l'aproche de l'évènement.</p>
+        @else
+        A venir
+        @endif
+
+
 
 
         <div class="title"><span class="first_letter">P</span>rix</div>
         <p>
-            Enfant : Gratuit <br>
-            Adult : 6€
+            Enfant :  {{$lastEdition->kids_price}} <br>
+            Adult : {{$lastEdition->price}}
         </p>
 
 
-        <a href="#" class="h_cta">En savoir plus<img src="" alt=""></a>
+        <a href="#" class="h_cta">Qui sommes nous ? <img src="" alt=""></a>
 
     </div>
 
     <section class="cont_form">
         <h2><span class="first_letter">A</span>cheter des billets</h2>
-        <form action="">
-                <a class="h_cta">acheter</a>
-        </form>
-
-        <div class="buy_or">OU</div>
+        <div>
+            L'achat des billet n'est pas encore dispobine pour le moment. 
+        </div>
 
     </section>
 

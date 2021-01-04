@@ -125,3 +125,30 @@ textarea:focus + div {
     right: 1rem;
     z-index: 1000000;
 }
+
+
+/**** ERRO>R****/ 
+
+.alert-danger {
+    position: relative;
+    top: 2.3rem;
+    margin: 1rem;
+    color: #f55570;
+}
+
+.input.input_all{
+    border: #f5557075 1px solid;
+}
+
+
+.validation {
+
+    font-size: 3rem;
+    text-align: center;
+    //max-width: 60rem;
+    padding: 20rem;
+
+    color: rgb(76, 161, 43);
+    margin: 3rem 0;
+    
+}

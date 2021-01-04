@@ -43,8 +43,11 @@
 
         @foreach($exposants as $exposant)
             <section class="exp_contener">
-                <div class="exp_img" style="background-image: url('./img/bisc.jpg');">
-                </div>
+                @if($exposant->img)
+                    <div class="exp_img" style="background-image: url('./storage/{{$exposant->img}}');">
+                    </div>
+                @endif
+
                 <div class="exptext">
                     <div class="labeles inner_lable">
                         @foreach($exposant->lables as $lable)
@@ -59,6 +62,9 @@
                 </div>
             </section>
         @endforeach
+
+        {{ $exposants->links() }}
+        
 
     </div>
 </section>

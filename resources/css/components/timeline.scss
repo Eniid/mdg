@@ -28,3 +28,20 @@
     height: 0%;
     border-radius: 2rem;
 }
+
+@media screen and (max-width: 650px) {
+
+    .timeline {
+        height: 100vh;
+    
+
+    }
+
+
+
+    .timeline_contener {
+        justify-content: left;
+    }
+
+
+    }

@@ -11,6 +11,7 @@
         "php": "^7.3|^8.0",
         "chris-ware/nova-clock-card": "^1.2",
         "coderello/laravel-nova-lang": "^1.7",
+        "enid/mdg": "*",
         "enid/welcome": "*",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -19,10 +20,10 @@
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
         "pdmfc/nova-info-card": "^1.0",
+        "stripe/stripe-php": "^7.67",
         "thijssimonis/nova-list-card": "^1.1",
         "timothyasp/nova-color-field": "^1.0",
-        "whitecube/nova-page": "^0.2.5",
-        "enid/mdg": "*"
+        "whitecube/nova-page": "^0.2.5"
     },
     "repositories": [
         {
