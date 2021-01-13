@@ -2,25 +2,21 @@
 
 namespace App\Nova;
 
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image as FieldsImage;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Pdmfc\NovaCards\Info;
 
-class Archive extends Resource
+class Sponsor extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Archive::class;
+    public static $model = \App\Models\Sponsor::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -28,6 +24,8 @@ class Archive extends Resource
      * @var string
      */
     public static $title = 'id';
+
+    public static $group = 'Vos informations';
 
     /**
      * The columns that should be searched.
@@ -37,14 +35,6 @@ class Archive extends Resource
     public static $search = [
         'id',
     ];
-
-    public static function label() {
-        return 'Souvenires des éditions précédantes';
-    }
-
-
-
-    public static $group = ' Editions';
 
     /**
      * Get the fields displayed by the resource.
@@ -56,14 +46,12 @@ class Archive extends Resource
     {
         return [
             //ID::make(__('ID'), 'id')->sortable(),
-            Textarea::make('Desciption de l\'évenement', 'presentation')->alwaysShow()->rules('required'), 
+            Text::make('Nom du sponsor', 'nom')->rules('required'), 
+            Text::make('Lien'), 
 
-            BelongsTo::make('edition'), 
-            HasMany::make('archivepic')
+            FieldsImage::make('Nom du sponsor', 'img')->rules('required'), 
         ];
     }
-
-
 
     /**
      * Get the cards available for the request.
@@ -73,11 +61,7 @@ class Archive extends Resource
      */
     public function cards(Request $request)
     {
-        return [
-            (new Info())
-                    ->info('Une fois un évènement terminé, passez par ici pour décire son déroulement! Vous pouvez aussi ajouter des photos! Tout cela sera affiché sur la page "Editions Précédants" du site.'),
-                
-        ];
+        return [];
     }
 
     /**

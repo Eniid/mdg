@@ -65,6 +65,7 @@ class Edition extends Resource
             new Panel("Le lieu", $this->where()),
             new Panel("La date", $this->time()),
             new Panel("Description pour la page d'acceuil", $this->desc()),
+            new Panel("Note", $this->note()),
 
             HasOne::make('archive'), 
         ];
@@ -102,6 +103,13 @@ class Edition extends Resource
         return [
             Trix::make('Desciption rapide', 'catch'),
             Trix::make('Présenation de l\'édition','presentation'), 
+        ];
+    }
+
+    private function note()
+    {
+        return [
+            Trix::make('Note covid ou autre (affiché dans les info pratique de la page buy)', 'Note'),
         ];
     }
 

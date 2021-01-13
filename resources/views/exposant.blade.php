@@ -1,15 +1,16 @@
 @extends('layout')
 
+<!-- Title -->
+@section('title')
+    Exposants :
+@endsection
+
+
 
 @section('content')
-
-<h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
-<!-- Nav timeline & CTA -->
-<x-nav></x-nav>
-<x-timeline></x-timeline>
-<x-buy_cta></x-buy_cta>
-
 <!-- Main Content -->
+<div class="about_cont"></div>
+
 
 <section>
     <div class="exp_main_sec exp_head_contener">
@@ -28,20 +29,21 @@
                 <form action="exposants" class="input_contener">
                     @csrf
                     <label for="search" class="visually-hidden">Recherche</label>
-                    <input type="text" placeholder="recherche" name="search">
+                    <input type="text" class="search_input" placeholder="recherche" name="search">
                     <div class="input"></div>
                     <button class="search_button"><img src="./img/search.svg" alt=""></button>
                 </form>
 
             </div>
         </div>
-
-
     </div>
+
 
     <div class="exp_body exp_main_sec">
 
         @foreach($exposants as $exposant)
+
+
             <section class="exp_contener">
                 @if($exposant->img)
                     <div class="exp_img" style="background-image: url('./storage/{{$exposant->img}}');">
@@ -51,7 +53,7 @@
                 <div class="exptext">
                     <div class="labeles inner_lable">
                         @foreach($exposant->lables as $lable)
-                        <a href="" class="lable" style="color:{{$lable->color}}">{{$lable->name}}</a>
+                        <a href="/exposants/?s={{$lable->name}}" class="lable" style="color:{{$lable->color}}">{{$lable->name}}</a>
                         @endforeach
                     </div>
                     <h3>{{$exposant->name}}</h3>
@@ -63,10 +65,14 @@
             </section>
         @endforeach
 
-        {{ $exposants->links() }}
+        <br>
+
         
 
     </div>
+    <div class="paginate">
+            {{ $exposants->links() }}
+        </div>
 </section>
 
 

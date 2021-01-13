@@ -1,15 +1,24 @@
 @extends('layout')
 
 
+<!-- Title -->
+@section('title')
+    Marchés précédents :
+@endsection
+
+
 @section('content')
 
-<h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
-<!-- Nav timeline & CTA -->
-<x-nav></x-nav>
-<x-timeline></x-timeline>
-<x-buy_cta></x-buy_cta>
-
 <!-- Main Content -->
+
+    <input type="checkbox" id="lightbox">   
+    <div class="lightbox">
+        <label for="lightbox" class="lightbox_button">
+            FERMER
+        </label>
+        <div class="lightboxContainer"></div>
+    </div>
+<div class="about_cont"></div>
 
 
 <section class="last_sec">
@@ -23,7 +32,10 @@
             <div class="title_right"></div>
         </div>
 
-        <a href="#" class="h_cta">Achetez vos billets<img src="" alt=""></a>
+        <div class="this_edition">
+            <a href="#" class="h_cta">Achetez vos billets<img src="" alt=""></a>
+        </div>
+
     </section>
 
 
@@ -41,20 +53,20 @@
                 {{$archive->presentation}}
                 </div>
                 <div class="content_pics">
-                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
-                <img src="https://www.guyom-design.com/blog/images/5.jpg" alt>
+
+                @foreach($archive->archivepic as $ap)
+                <a href="/storage/{{$ap->img}}">
+                    <img src="/storage/{{$ap->img}}" alt"" class="lightbox_image" >
+                </a>
+                @endforeach
+
 
                 </div>
             </div>
 
         </section>
     @endforeach
-    {{ $archives->links() }}
+ 
 
 
     <!-- TESTE  -->

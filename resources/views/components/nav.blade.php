@@ -11,22 +11,22 @@
         
         <ol class="">
             <li class="main_nav_item {{ (request()->is('/')) ? 'active' : '' }}">
-                <a href="/"><span class="first_letter">A</span>cceuil</a>
+                <a href="{{ asset('/') }}"><span class="first_letter">A</span>cceuil</a>
             </li>
             <li class="main_nav_item {{ (request()->is('/exposants')) ? 'active' : '' }}">
-                <a href="/exposants"><span class="first_letter">E</span>xposants</a>
+                <a href="{{ asset('/exposants') }}"><span class="first_letter">E</span>xposants</a>
             </li>
-            <li class="main_nav_item">
-                <a href="/about"><span class="first_letter">Q</span>ui sommes nous ?</a>
+            <li class="main_nav_item {{ (request()->is('/about')) ? 'active' : '' }}" >
+                <a href="{{ asset('/about') }}"><span class="first_letter">Q</span>ui sommes nous ?</a>
             </li>
-            <li class="main_nav_item">
-                <a href="/editions_precedents"><span class="first_letter">M</span>arché présédent</a>
+            <li class="main_nav_item {{ (request()->is('/editions_precedentss')) ? 'active' : '' }}">
+                <a href="{{ asset('/editions_precedents')}}"><span class="first_letter">M</span>arché présédent</a>
             </li>
-            <li class="main_nav_item">
-                <a href="/contact"><span class="first_letter">C</span>ontact</a>
+            <li class="main_nav_item {{ (request()->is('/contact')) ? 'active' : '' }}">
+                <a href="{{ asset('/contact')}}"><span class="first_letter">C</span>ontact</a>
             </li>
-            <li class="h_cta">
-                <a href="/buy">Acheter vos billets</a>
+            <li class="h_cta {{ (request()->is('/buy')) ? 'active' : '' }}">
+                <a href="{{ asset('/buy')}}">Acheter vos billets</a>
             </li>
         </ol>
     </nav>

@@ -28,13 +28,11 @@ class indexController extends Controller
     public function last(){
         $editions = Edition::all();
         $lastEdition = $editions->sortByDesc('edition_date')->first();
-        $archives = Archive::paginate(5);
+        $archives = Archive::with('archivepic')->get();
         $larchives = $archives->sortByDesc('edition_id');
-
 
         $contact = Contact::all()->first(); 
 
-        
 
 
         return view('last', compact('lastEdition', 'contact', 'archives', 'larchives'));

@@ -49,7 +49,7 @@ class Archivepic extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
 
-            Image::make('Ajouter une image', 'img')->rules('required'), 
+            Image::make('Ajouter une image', 'img'), 
 
             BelongsTo::make('archive')
 

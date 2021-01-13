@@ -68,6 +68,12 @@ html {
 
 @media screen and (max-width: 950px) {
 
+
+
+    .pres_text {
+        width: 90%;
+    }
+    
     .pres_img {
         display: none;
     }
@@ -154,3 +160,11 @@ html {
 }
 
 
+.about_main {
+    width: 85%;
+    max-width: 100rem;
+    margin: 17rem auto;
+    .main_sec {
+        height: 80vh;
+    }
+}

@@ -1,19 +1,18 @@
 @extends('layout')
 
+<!-- Title -->
+@section('title')
+    Devenir exposants :
+@endsection
+
 
 @section('content')
 
-<h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
-
-<!-- Nav timeline & CTA -->
-<x-nav></x-nav>
-<x-timeline></x-timeline>
-<x-buy_cta></x-buy_cta>
 
 <!-- Main Content -->
 
 
-<section class="main_sec main_contact">
+<section class="main_sec main_contact main_new">
     <div class="cont_infos">
         <h2><span class="first_letter">D</span>evenir exposant</h2>
         <p>
@@ -22,7 +21,7 @@
         <p>
         Vous avez une question avant d’intoduire votre demande ou besoin d’informations supplémentaires ? 
         </p>
-        <a href="#" class="h_cta">Nous contacter<img src="" alt=""></a>
+        <a href="{{ asset('/contact') }}" class="h_cta">Nous contacter<img src="" alt=""></a>
 
     </div>
     <div class="cont_form">
@@ -57,7 +56,7 @@
 
             <div class="input_contener form_input inl_input">
                 <label for="s_name">Nom du stand :</label>
-                <input type="text" id="s_name" name="s_name" class="mail" value="{{ old('s_name') }}">
+                <input type="text" id="s_name" name="s_name" class="s_name" value="{{ old('s_name') }}">
                 <div class="input"></div>
                 @error('s_name')
                 <div class="input input_all"></div>
@@ -68,7 +67,7 @@
 
             <div class="input_contener form_input inl_input">
                 <label for="prod">Produits :</label>
-                <input type="text" id="prod" name="prod" class="mail" value="{{ old('prod') }}">
+                <input type="text" id="prod" name="prod" class="prod" value="{{ old('prod') }}">
                 <div class="input"></div>
                 @error('s_name')
                 <div class="input input_all"></div>

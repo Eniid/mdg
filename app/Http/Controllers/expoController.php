@@ -20,8 +20,8 @@ class expoController extends Controller
         $editions = Edition::all();
         $lastEdition = $editions->sortByDesc('edition_date')->first();
         $contact = Contact::all()->first(); 
-        $lables = Lable::all(); 
-        $exposants = Expo::where('this_year', 1)->with('lables')->paginate(9); 
+        $lables = Lable::all();
+        $exposants = Expo::where('this_year', 1)->with('lables')->paginate(6); 
 
         
 
@@ -31,13 +31,13 @@ class expoController extends Controller
         //dd($lable);
             $exposants = Expo::whereHas('lables', function (Builder $query) use ($lable) {
                 $query->where('name', $lable);
-            })->paginate(9);
+            })->paginate(6);
         }
 
 
         if(request('search')){
             $re = request('search'); 
-        $exposants = Expo::where('this_year', 1)->where('name', 'like', '%' .$re.'%')->orWhere('desciption', 'like', '%' .$re.'%')->where('this_year', 1)->with('lables')->paginate(9); 
+        $exposants = Expo::where('this_year', 1)->where('name', 'like', '%' .$re.'%')->orWhere('desciption', 'like', '%' .$re.'%')->where('this_year', 1)->with('lables')->paginate(6); 
         } 
 
         return view('exposant', compact('lastEdition', 'contact', 'lables', 'exposants'));

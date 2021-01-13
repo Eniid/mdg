@@ -1,14 +1,14 @@
 @extends('layout')
 
 
+<!-- Title -->
+@section('title')
+    Devenir exposants :
+@endsection
+
+
 @section('content')
 
-<h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
-
-<!-- Nav timeline & CTA -->
-<x-nav></x-nav>
-<x-timeline></x-timeline>
-<x-buy_cta></x-buy_cta>
 
 <!-- Main Content -->
 

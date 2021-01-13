@@ -1,17 +1,18 @@
 @extends('layout')
 
+<!-- Title -->
+@section('title')
+    Acheter :
+@endsection
+
 
 @section('content')
 
-<a href="/">
-    <h1>Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
-</a>
-<!-- Nav timeline & CTA -->
-<x-nav></x-nav>
-<x-timeline></x-timeline>
-<x-buy_cta></x-buy_cta>
+
 
 <!-- Main Content -->
+
+<div class="about_cont"></div>
 
 
 <section class="main_sec main_contact">

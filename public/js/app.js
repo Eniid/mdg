@@ -155,6 +155,28 @@ window.addEventListener("scroll", function (e) {
     }
   });
 }, false);
+document.addEventListener("click", function (e) {
+  var el = e.target;
+
+  if (el.classList.contains("lightbox_image")) {
+    e.preventDefault();
+    var checkbox = document.querySelector("#lightbox");
+    var lightbox = document.querySelector(".lightboxContainer");
+    lightbox.innerHTML = "";
+    var image = document.createElement("img");
+    image.src = el.parentElement.getAttribute("href");
+    lightbox.insertAdjacentElement("beforeend", image);
+    checkbox.checked = true;
+    console.log("bouuu");
+    return false;
+  }
+
+  if (el.classList.contains("lightbox")) {
+    var _checkbox = document.querySelector("#lightbox");
+
+    _checkbox.checked = false;
+  }
+});
 
 /***/ }),
 

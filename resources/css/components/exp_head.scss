@@ -12,6 +12,7 @@
 @media screen and (min-width: 1100px) {
     .exp_main_sec {
         margin: 4rem auto;
+    
     }
 }
 
@@ -43,6 +44,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: right;
+    min-height: 40vh;
 }
 
 
@@ -85,6 +87,12 @@
 
 }
 
+.this_edition {
+    margin: 10rem auto;
+    text-align: center;
+
+}
+
 
 .title_exp {
     display: inline-block;
@@ -93,8 +101,10 @@
 
 .become_exp {
     font-size: 1.2rem;
-    padding: .5rem 1.5rem;
     margin: 1rem;
-    border-radius: 2rem;
-    box-shadow: #0404041a 3px 2px 15px 2px;
+}
+
+
+.search_button {
+    z-index: 1000000000;
 }

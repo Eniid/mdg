@@ -2,6 +2,9 @@
     margin-left: 10%;
     margin-right: 4rem;
     margin-top: 20rem;
+    width: 80%;
+    max-width: 150rem;
+    margin: 20rem auto;
 
     h3 {
         padding: 0 2rem;
@@ -29,18 +32,34 @@
 
 .last_content {
     display: flex;
+    .content_note {
+        padding: 0 4rem 0 2rem;
+    }
+}
+
+@media screen and (max-width: 770px) {
+
+    .last_content {
+        flex-direction: column;
+    }
+
+    .last_sec {
+
+        width: 90%;
+
+    }
+    
 }
 
 
 // CONTENu
 
 .content_pics {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    grid-gap: 15px;
+
 
     img {
         height: 10rem;
         width: auto;
+        margin: .5rem;
     }
   }

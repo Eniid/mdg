@@ -16,3 +16,16 @@
     }
     
 }
+
+
+@media screen and (max-width: 1000px){
+    .main_new {
+        flex-direction: column;
+        margin: 15rem 3rem;
+        height: auto;
+    }
+
+    .cont_infos {
+         padding: 0;
+    }
+}

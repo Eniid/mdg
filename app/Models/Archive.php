@@ -16,6 +16,6 @@ class Archive extends Model
 
     public function archivepic()
     {
-        return $this->hasOne(Archivepic::class);
+        return $this->hasMany(Archivepic::class);
     }
 }
