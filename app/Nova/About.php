@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use Pdmfc\NovaCards\Info;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 class About extends Resource
 {
@@ -71,7 +72,7 @@ class About extends Resource
         return [
             Text::make('Titre', 'mdg_title')->rules('required'), 
             Trix::make('Desciption du marché', 'mdg_desc')->rules('required'),
-            Image::make('Image', 'mdg_img'),
+            AdvancedImage::make('Image', 'mdg_img')->resize(600),
         ];
     }
 
@@ -80,7 +81,7 @@ class About extends Resource
         return [
             Text::make('Titre', 'why_title')->rules('required'), 
             Trix::make('Explication sur les enjeux du marché', 'why_desc')->rules('required'), 
-            Image::make('Image', 'why_img'), 
+            AdvancedImage::make('Image', 'why_img')->resize(600),
         ];
     }
 
@@ -89,7 +90,7 @@ class About extends Resource
         return [
             Text::make('Titre', 'rotari_title')->rules('required'), 
             Trix::make('Desciption du rotary', 'rotari_desc')->rules('required'), 
-            Image::make('Image', 'rotari_img'),
+            AdvancedImage::make('Image', 'rotari_img')->resize(600),
         ];
     }
 

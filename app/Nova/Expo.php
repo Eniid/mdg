@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Pdmfc\NovaCards\Info;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 class Expo extends Resource
 {
@@ -62,7 +63,7 @@ class Expo extends Resource
             Text::make('Nom', 'name')->rules('required'), 
             Trix::make('Desciption', 'desciption')->rules('required', 'max:200'), 
             Text::make('Lien', 'link'), 
-            Image::make('Image', 'img'),
+            AdvancedImage::make('Image', 'img')->croppable()->resize(null, 300),
             Boolean::make('Présent cette année', 'this_year'), 
 
             BelongsToMany::make('lables')

@@ -8,6 +8,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image as FieldsImage;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
+
 
 class Sponsor extends Resource
 {
@@ -49,7 +51,7 @@ class Sponsor extends Resource
             Text::make('Nom du sponsor', 'nom')->rules('required'), 
             Text::make('Lien'), 
 
-            FieldsImage::make('Nom du sponsor', 'img')->rules('required'), 
+            AdvancedImage::make('Nom du sponsor', 'img')->rules('required')->resize(null, 300), 
         ];
     }
 

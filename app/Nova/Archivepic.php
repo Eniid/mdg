@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use PhpParser\Node\Expr\New_;
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
 class Archivepic extends Resource
 {
@@ -50,7 +51,7 @@ class Archivepic extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
 
-            Image::make('Ajouter une image', 'img')->creationRules('required'), 
+            AdvancedImage::make('Ajouter une image', 'img')->creationRules('required')->croppable()->resize(1000), 
             Text::make('Description de l\'image', 'alt')->rules('required', 'max:150'), 
 
             BelongsTo::make('archive')
