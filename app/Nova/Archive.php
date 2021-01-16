@@ -39,7 +39,7 @@ class Archive extends Resource
     ];
 
     public static function label() {
-        return 'Souvenires des éditions précédantes';
+        return 'Souvenirs des éditions précédentes';
     }
 
 

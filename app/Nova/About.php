@@ -25,7 +25,7 @@ class About extends Resource
 
 
     public static function label() {
-        return 'Qui êtes vous? ';
+        return 'Qui êtes-vous? ';
     }
 
     /**

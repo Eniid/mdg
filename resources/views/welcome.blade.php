@@ -14,16 +14,16 @@
         <h2 class="visually-hidden">menu de navigation</h2>      
         <ol class="">
             <li class="main_nav_item active">
-                <a href="{{ asset('/') }}"><span class="first_letter">A</span>cceuil</a>
+                <a href="{{ asset('/') }}"><span class="first_letter">A</span>ccueil</a>
             </li>
             <li class="main_nav_item">
                 <a href="{{ asset('/exposants') }}"><span class="first_letter">E</span>xposants</a>
             </li>
             <li class="main_nav_item" >
-                <a href="{{ asset('/about') }}"><span class="first_letter">Q</span>ui sommes nous ?</a>
+                <a href="{{ asset('/about') }}"><span class="first_letter">Q</span>ui sommes-nous ?</a>
             </li>
             <li class="main_nav_item">
-                <a href="{{ asset('/editions_precedents')}}"><span class="first_letter">M</span>arché présédent</a>
+                <a href="{{ asset('/editions_precedents')}}"><span class="first_letter">M</span>arché précédent</a>
             </li>
             <li class="main_nav_item">
                 <a href="{{ asset('/contact')}}"><span class="first_letter">C</span>ontact</a>
@@ -67,7 +67,7 @@
         <h2 class="visually-hidden ">Les plus</h2>
             <div class="one_plus annim one">
                 <div class="one_contener cont">
-                    <p class="plus_text">Des petit plats à déguster, praparer avec les produits exposés.</p>
+                    <p class="plus_text">Des petits plats à déguster, préparer avec les produits exposés.</p>
                 </div>
             </div>
             <div class="one_plus annim two " >
@@ -76,7 +76,7 @@
                 </div>
             </div>        <div class="one_plus annim three">
             <div class="three_contner cont">
-                <p>Un banc contacte pour retirer de l’argent a votre disponibilité</p>
+                <p>Un banccontact pour retirer de l’argent à votre disponibilité</p>
             </div>
             </div>        <div class="one_plus annim four">
                 <div class="four_contner cont">

@@ -24,16 +24,16 @@
         
         <ol class="">
             <li class="main_nav_item">
-                <a href="{{ asset('/') }}"><span class="first_letter">A</span>cceuil</a>
+                <a href="{{ asset('/') }}"><span class="first_letter">A</span>ccueil</a>
             </li>
             <li class="main_nav_item">
                 <a href="{{ asset('/exposants') }}"><span class="first_letter">E</span>xposants</a>
             </li>
             <li class="main_nav_item" >
-                <a href="{{ asset('/about') }}"><span class="first_letter">Q</span>ui sommes nous ?</a>
+                <a href="{{ asset('/about') }}"><span class="first_letter">Q</span>ui sommes-nous ?</a>
             </li>
             <li class="main_nav_item">
-                <a href="{{ asset('/editions_precedents')}}"><span class="first_letter">M</span>arché présédent</a>
+                <a href="{{ asset('/editions_precedents')}}"><span class="first_letter">M</span>arché précédent</a>
             </li>
             <li class="main_nav_item active">
                 <a href="{{ asset('/contact')}}"><span class="first_letter">C</span>ontact</a>

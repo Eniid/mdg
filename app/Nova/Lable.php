@@ -46,7 +46,7 @@ class Lable extends Resource
     {
         return [
             //ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Lable', 'name')->rules('required'),
+            Text::make('Label', 'name')->rules('required'),
             Color::make('Couleur', 'color')->rules('required'), 
         ];
     }

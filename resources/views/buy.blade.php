@@ -24,16 +24,16 @@
         
         <ol class="">
             <li class="main_nav_item">
-                <a href="{{ asset('/') }}"><span class="first_letter">A</span>cceuil</a>
+                <a href="{{ asset('/') }}"><span class="first_letter">A</span>ccueil</a>
             </li>
             <li class="main_nav_item">
                 <a href="{{ asset('/exposants') }}"><span class="first_letter">E</span>xposants</a>
             </li>
             <li class="main_nav_item" >
-                <a href="{{ asset('/about') }}"><span class="first_letter">Q</span>ui sommes nous ?</a>
+                <a href="{{ asset('/about') }}"><span class="first_letter">Q</span>ui sommes-nous ?</a>
             </li>
             <li class="main_nav_item">
-                <a href="{{ asset('/editions_precedents')}}"><span class="first_letter">M</span>arché présédent</a>
+                <a href="{{ asset('/editions_precedents')}}"><span class="first_letter">M</span>arché précédent</a>
             </li>
             <li class="main_nav_item">
                 <a href="{{ asset('/contact')}}"><span class="first_letter">C</span>ontact</a>
@@ -72,7 +72,7 @@
     <!-- Informations sur l'event -->
     <div class="cont_infos buy_infos">
         
-        <h2><span>A</span>cheter des tikets</h2>
+        <h2><span>A</span>cheter des tickets</h2>
         <!-- Partie "note" -->
         <div>
             {!!$lastEdition->note!!}
@@ -83,8 +83,8 @@
             Prix
         </div>
         <p>
-            Enfant :  {{$lastEdition->kids_price}} <br>
-            Adult : {{$lastEdition->price}}
+            Enfants :  {{$lastEdition->kids_price}} <br>
+            Adultes : {{$lastEdition->price}}
         </p>
 
         <!-- Le lieux -->
@@ -104,7 +104,7 @@
             <p>De {{$lastEdition->aprox_date}} au {{$lastEdition->ending_date}}	</p>
         @elseif($lastEdition->aprox_date)
             <p>{{$lastEdition->aprox_date}}</p>
-            <p class="note">Des dates plus précises setont connnues à l'aproche de l'évènement.</p>
+            <p class="note">Des dates plus précises seront communiquer à l'aproche de l'évènement.</p>
         @else
             A venir
         @endif
@@ -137,10 +137,10 @@
                 <p id="card-error" role="alert"></p>
                 <div class="result-message hidden">
                     <p>Merci de votre achat!</p>
-                    <p>Vous avez été ajouter à la liste des inviter. Présentez vous avec un document sur le quel votre nom est indiqué le jour du marché. <a href="/buy">Acheter un autre billet</a> </p>
+                    <p>Vous avez été ajouté à la liste des inviters. Présentez-vous avec un document sur le-quel votre nom est indiqué le jour du marché. <a href="/buy">Acheter un autre billet</a> </p>
                 </div>
             </div>
-            <p>Les enfants peuvent entrer sans tikets. </p>
+            <p>Les enfants peuvent entrer sans ticket. </p>
         </form>
     </div>
 
