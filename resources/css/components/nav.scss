@@ -1,3 +1,21 @@
+
+
+.nav input:checked~.nav-bg {
+    background-color: rgba(0, 0, 0, 0.603);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    transition: 1s ease-out;
+}
+
+.close_nav{
+    color: #fff;
+}
+
+
 .nav {
     position: fixed;
     right: -40rem;

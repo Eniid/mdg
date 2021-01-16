@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use PhpParser\Node\Expr\New_;
@@ -49,7 +50,8 @@ class Archivepic extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
 
-            Image::make('Ajouter une image', 'img'), 
+            Image::make('Ajouter une image', 'img')->creationRules('required'), 
+            Text::make('Description de l\'image', 'alt')->rules('required', 'max:150'), 
 
             BelongsTo::make('archive')
 

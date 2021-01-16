@@ -168,3 +168,23 @@ html {
         height: 80vh;
     }
 }
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+
+    .main_buy {
+        height: auto;
+    }
+
+    .pay {
+        padding: 1rem;
+    }
+    }
+
+.cont_infos {
+    max-width: 50rem;
+    min-width: 30rem;
+}

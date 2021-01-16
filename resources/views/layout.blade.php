@@ -18,43 +18,61 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
+    <!-- Scriptes pour Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    
     <!-- Titre de la page  -->
     <title>@yield('title') Marché des gourmets</title>
 </head>
-<body itemscope itemtype="https://schema.org/FoodEvent">
 
-        <a href="{{ asset('/') }}">
-            <h1 role="heading" aria-level="1">Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
-        </a>
 
-        <!-- Nav timeline & CTA -->
-        <x-nav></x-nav>
-        <x-timeline></x-timeline>
-        <x-buy_cta></x-buy_cta>
+<!-- CONTENU   -->
+<body itemscope itemtype="https://schema.org/FoodEvent" class="no-js">
 
-        <!-- Ici le contenu des pages !  -->
-        @yield('content')
+    <!-- Titre de la page  -->
+    <a href="{{ asset('/') }}">
+        <h1 itemprop="name">Le {{$lastEdition->edition_number}} marché des <span>&nbsp;Gourmets</span></h1>
+    </a>
 
-        <!-- Footer  -->
-        <footer>
-            <div>
-                @if($lastEdition->aprox_date)
-                    <p> Date : <span itemprop="startDate">{{$lastEdition->aprox_date}}</span>
-                @endif
+    <!-- Nav timeline-->
+    <x-timeline></x-timeline>
+
+
+    <!-- *** AJOUT DES PAGES ICI ***   -->
+    @yield('content')
+
+    
+    <!-- Footer  -->
+    <footer> <!-- Flex  -->
+
+        <!-- Informations pratiques  -->
+        <div>
+            @if($lastEdition->aprox_date)
+                <p> Date : <span>{{$lastEdition->aprox_date}}</span>
+            @endif
                 <br>
-                @if($lastEdition->place)
-                    Lieu : <span itemprop="location">@if($lastEdition->google_map)</span><a href="{{$lastEdition->google_map}}" target="_blank" rel="noopener noreferrer">@endif{{$lastEdition->place}}@if($lastEdition->google_map)</a>@endif </p>
-                @endif
+            @if($lastEdition->place)
+                Lieu : <span>@if($lastEdition->google_map)</span><a href="{{$lastEdition->google_map}}" target="_blank" rel="noopener noreferrer">@endif<span itemprop="location">{{$lastEdition->place}}</span>@if($lastEdition->google_map)</a>@endif </p>
+            @endif
+        </div>
 
-            </div>
-            <div class="foot_link">
-                <a href="{{$contact->web}}" target="_blank" rel="noopener noreferrer">{{$contact->web}}</a>
-            </div>
-            <div>
-                <p>Tel : {{$contact->tel}}<br>
-                Mail : <a href="#">{{$contact->e_mail}}</a></p>
-            </div>
-        </footer>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <!-- Site web Rotary  -->
+        <div class="foot_link">
+            <a href="{{$contact->web}}" target="_blank" rel="noopener noreferrer">{{$contact->web}}</a>
+        </div>
+
+        <!-- Informations de contacte  -->
+        <div>
+            <p>
+                Tel : {{$contact->tel}}<br>
+                Mail : <a href="mailto:{{$contact->e_mail}}">{{$contact->e_mail}}</a>
+            </p>
+        </div>
+
+    </footer>
+    
+    <!-- Ajout du JavaScript  -->
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

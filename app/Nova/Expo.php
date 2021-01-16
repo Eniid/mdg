@@ -60,7 +60,7 @@ class Expo extends Resource
             //ID::make(__('ID'), 'id')->sortable(),
 
             Text::make('Nom', 'name')->rules('required'), 
-            Trix::make('Desciption', 'desciption')->rules('required'), 
+            Trix::make('Desciption', 'desciption')->rules('required', 'max:200'), 
             Text::make('Lien', 'link'), 
             Image::make('Image', 'img'),
             Boolean::make('Présent cette année', 'this_year'), 

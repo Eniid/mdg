@@ -35,5 +35,6 @@ Route::get('/contact', [expoController::class, 'message']);
 Route::post('/contact', [expoController::class, 'messageStore']);
 
 Route::get('/buy', [indexController::class, 'buy']);
+Route::post('/buy', [indexController::class, 'pay']);
 
 

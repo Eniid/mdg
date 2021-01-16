@@ -1,5 +1,6 @@
 @if ($paginator->hasPages())
     <nav>
+        <h3 class="visually-hidden">Pagination</h3>
         <ul class="pagination">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())

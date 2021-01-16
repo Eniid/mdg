@@ -105,6 +105,8 @@
 /***/ (function(module, exports) {
 
 console.log('coucou! ');
+document.body.classList.remove("no-js");
+document.body.classList.add("js");
 
 window.onload = function () {
   window.addEventListener("scroll", function () {

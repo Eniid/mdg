@@ -1,10 +1,13 @@
 
+
+
+//*** CTA ***//
+
 .main_cta {
     display: inline-block;
-
     padding: 1.5rem 3rem;
-    background-color: #fff;
-    color: black;
+    background-color: $w;
+    color: $b;
     font-size: 1.6rem;
     border-radius: 5rem;
     text-decoration: none;
@@ -22,8 +25,8 @@
     display: inline-block;
 
     padding: 1rem 2rem;
-    background-color: #fff;
-    color: black;
+    background-color: $w;
+    color: $b;
     font-size: 1.4rem;
     border-radius: 5rem;
     text-decoration: none;
@@ -62,46 +65,4 @@
 
 
 
-//*****/ 
 
-footer {
-    color: #fff;
-    background: -webkit-linear-gradient(147deg, rgba(255,176,71,1) 0%, rgba(251,114,147,1) 100%);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5rem;
-    //margin-top: 10rem;
-    font-size: 1.5rem;
-
-    a { 
-        color: #fff;
-    }
-
-    .foot_link {
-
-        font-size: 1.7rem;
-        border-bottom: 1px solid #fff;
-        padding: .7rem 1rem;
-
-    
-
-        a{
-            text-decoration: none;
-        }
-    }
-}
-
-
-@media screen and (max-width: 1000px) {
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .foot_link {
-        width: 15rem;
-        margin: 5rem auto;
-    }
-    
-}
